@@ -8,5 +8,5 @@ Then, the code extracts data from each company's URL, and then matches the key w
 in each industry. An URL gets the industry code that has most word matching.
 
 # Instructions to run the code
-Run the code and it will print the urls for each company with an updated industry code and industry names.
+Run the code and it will print the urls for each company with an updated industry code and industry name.
 Python 3.x
