@@ -1,3 +1,8 @@
+'''
+Author Mona Dadoun
+Date 2017-11-29
+'''
+
 import csv
 from html2text import html2text
 import urllib.request
@@ -13,8 +18,13 @@ def parse_industries(industries_data_file_name, key):
             for i in range(len(row)):
                 row[i] = row[i].strip().lower()
 
+            industry_name = row[1]
+            industry_parent_name = row[2]
+            if industry_parent_name:
+                industry_name = industry_name + ', ' + industry_parent_name
+
             industry_code.update({str(row[key]): set(row[1:])})
-            industry_names.update({str(row[key]): row[1]})
+            industry_names.update({str(row[key]): industry_name})
         return industry_code, industry_names
 
 
@@ -83,5 +93,5 @@ def main():
             print("Best matched words" + str(best_matched_words))
             print(industry_names.get(best_industry_code))
 
-
 main()
+
